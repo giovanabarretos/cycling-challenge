@@ -1,0 +1,11 @@
+{
+  "passcodes": [
+    {
+      "id": "1",
+      "code": "BIKE2023",
+      "points": 10,
+      "location": "City Park",
+      "active": true
+    }
+  ]
+}
