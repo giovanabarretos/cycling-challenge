@@ -1,6 +1,5 @@
 // Utility function to show messages
 function showMessage(message, isError = false) {
-    // Remove any existing message
     const existingMessage = document.querySelector('.message');
     if (existingMessage) {
         existingMessage.remove();
@@ -13,7 +12,6 @@ function showMessage(message, isError = false) {
     const form = document.getElementById('submitForm');
     form.insertAdjacentElement('beforebegin', messageDiv);
 
-    // Remove message after 5 seconds
     setTimeout(() => messageDiv.remove(), 5000);
 }
 
@@ -27,6 +25,7 @@ function updateTimer() {
         })
         .catch(error => {
             console.error('Error fetching timer:', error);
+            document.getElementById('countdown').textContent = 'Carregando...';
         });
 }
 
@@ -38,13 +37,18 @@ function updateLeaderboard() {
             const leaderboardElement = document.getElementById('leaderboard');
             leaderboardElement.innerHTML = '';
 
+            if (users.length === 0) {
+                leaderboardElement.innerHTML = '<p style="text-align: center; opacity: 0.6;">Nenhum participante ainda. Seja o primeiro!</p>';
+                return;
+            }
+
             users.forEach((user, index) => {
                 const entry = document.createElement('div');
                 entry.className = 'leaderboard-entry';
                 entry.innerHTML = `
                     <span class="rank">#${index + 1}</span>
                     <span class="username">${user.instagramUser}</span>
-                    <span class="points">${user.totalPoints} pontos</span>
+                    <span class="points">${user.totalPoints} pts</span>
                 `;
                 leaderboardElement.appendChild(entry);
             });
@@ -73,14 +77,14 @@ document.getElementById('submitForm').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            showMessage('Passcode submitted successfully!');
+            showMessage('Código enviado com sucesso! 🎉');
             document.getElementById('passcode').value = '';
             updateLeaderboard();
         } else {
             showMessage(data.error, true);
         }
     } catch (error) {
-        showMessage('An error occurred while submitting the passcode.', true);
+        showMessage('Erro ao enviar o código. Tente novamente.', true);
         console.error('Error:', error);
     }
 });
@@ -89,8 +93,6 @@ document.getElementById('submitForm').addEventListener('submit', async (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     updateLeaderboard();
     updateTimer();
-    // Update timer every second
     setInterval(updateTimer, 1000);
-    // Update leaderboard every minute
     setInterval(updateLeaderboard, 60000);
 });

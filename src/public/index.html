@@ -1,43 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alleycat de Halloween Jaguatiricas</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Desafio de Halloween Jaguatiricas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Alleycat de Halloween Jaguatiricas</h1>
-            <div id="timer" class="timer">
-                Termina em: <span id="countdown"></span>
-            </div>
-        </header>
 
-        <main>
-            <section class="submit-section">
-                <h2>Submeter código super secreto</h2>
+<body>
+    <div class="hero">
+        <h1>🎃 Desafio de Halloween 🚴</h1>
+        <h2>de 1 a 31 de Outubro</h2>
+        <p>@jaguatiricas_cwb</p>
+        <div class="timer">
+            <div class="timer-label">Desafio termina em:</div>
+            <div id="countdown">Carregando...</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h2>Enviar Código</h2>
                 <form id="submitForm">
                     <div class="form-group">
                         <label for="instagramUser">Usuário do Instagram:</label>
-                        <input type="text" id="instagramUser" name="instagramUser" required>
+                        <input type="text" id="instagramUser" name="instagramUser" placeholder="@seu_usuario" required>
                     </div>
                     <div class="form-group">
-                        <label for="passcode">Código:</label>
-                        <input type="text" id="passcode" name="passcode" required>
+                        <label for="passcode">Código Secreto:</label>
+                        <input type="text" id="passcode" name="passcode" placeholder="Digite o código" required>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <button type="submit">Enviar 🎃</button>
                 </form>
-            </section>
+            </div>
 
-            <section class="leaderboard-section">
+            <div class="card">
                 <h2>Ranking</h2>
                 <div id="leaderboard"></div>
-            </section>
-        </main>
+            </div>
+        </div>
+
+        <div class="card rules-section">
+            <h2>Regras do Desafio</h2>
+            <ul class="rules-list">
+                <li>Encontre os códigos secretos espalhados pela cidade e tire uma foto no local. [será utilizado para
+                    validação]</li>
+                <li>Cada código vale pontos - quanto mais difícil de encontrar, mais pontos você ganha</li>
+                <li>Envie os códigos através do formulário acima com seu usuário do Instagram</li>
+                <li>O desafio termina no Halloween, data indicada no contador acima</li>
+                <li>As 3 primeiras pessoas colocadas ganham prêmios especiais! 🏆</li>
+                <li>Mantenha o espírito de grupo e pedale com segurança</li>
+            </ul>
+        </div>
+
+        <div class="card video-section">
+            <h2>Vídeo do Desafio</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: var(--yellow); margin-bottom: 1rem;">Patrocinadores</h3>
+            <div class="sponsors">
+                <div class="sponsor-item">🚴 Bike Shop CWB</div>
+                <div class="sponsor-item">☕ Café do Ciclista</div>
+                <div class="sponsor-item">🔧 Oficina Veloz</div>
+            </div>
+
+            <div class="org-info">
+                <p><strong>Organização:</strong> Jaguatiricas CWB</p>
+                <p><strong>Local:</strong> Curitiba, PR</p>
+                <p><strong>Contato:</strong> @jaguatiricas_cwb</p>
+                <p style="margin-top: 1rem; opacity: 0.6;">🎃 Pedale com segurança e divirta-se! 🚴</p>
+            </div>
+        </div>
     </div>
 
     <script src="/js/app.js"></script>
 </body>
+
 </html>
