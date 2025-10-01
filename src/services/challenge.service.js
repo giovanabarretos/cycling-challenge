@@ -6,7 +6,7 @@ class ChallengeService {
     // Validate passcode
     const passcodeData = await PasscodeModel.validatePasscode(passcode);
     if (!passcodeData) {
-      throw new Error('Invalid passcode');
+      throw new Error('Código inválido');
     }
 
     // Add submission
